@@ -8,18 +8,29 @@
 
 import Cocoa
 
+protocol WindowProtocol {
+    var artWork: NSImage? { get set }
+    var musicDetail: String? { get set }
+}
+
 class WindowController: NSWindowController {
     
+    private lazy var presenter = WindowPresenter(self)
+    
     @IBAction func prevAction(_ sender: Any) {
+        presenter.shiftPrevMusic()
     }
     
     @IBAction func playPauseAction(_ sender: Any) {
+        presenter.playOrPauseMusic()
     }
     
     @IBAction func stopAction(_ sender: Any) {
+        presenter.stopMusic()
     }
     
     @IBAction func nextAction(_ sender: Any) {
+        presenter.shiftNextMusic()
     }
     
     override func windowDidLoad() {
@@ -30,4 +41,23 @@ class WindowController: NSWindowController {
 
     @IBOutlet weak var currentMusicDetail: NSTextField!
     @IBOutlet weak var currentMusicArtwork: NSImageCell!
+}
+
+extension WindowController: WindowProtocol {
+    var artWork: NSImage? {
+        get {
+            return currentMusicArtwork?.image
+        }
+        set {
+            currentMusicArtwork?.image = newValue
+        }
+    }
+    var musicDetail: String? {
+        get {
+            return currentMusicDetail?.stringValue
+        }
+        set {
+            currentMusicDetail?.stringValue = newValue ?? ""
+        }
+    }
 }
