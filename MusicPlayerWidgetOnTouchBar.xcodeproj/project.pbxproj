@@ -14,6 +14,7 @@
 		283DD69222EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD69122EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarTests.swift */; };
 		283DD69D22EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD69C22EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarUITests.swift */; };
 		28F4BABF22EF1E3500A3E662 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4BABE22EF1E3500A3E662 /* WindowController.swift */; };
+		28F4BAC222EF277D00A3E662 /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4BAC122EF277D00A3E662 /* WindowPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		283DD69C22EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerWidgetOnTouchBarUITests.swift; sourceTree = "<group>"; };
 		283DD69E22EBE30D00950AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F4BABE22EF1E3500A3E662 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		28F4BAC122EF277D00A3E662 /* WindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		283DD67D22EBE30C00950AC8 /* MusicPlayerWidgetOnTouchBar */ = {
 			isa = PBXGroup;
 			children = (
+				28F4BAC022EF276600A3E662 /* Presenter */,
 				28F4BABB22EF1D6200A3E662 /* Controller */,
 				283DD67E22EBE30C00950AC8 /* AppDelegate.swift */,
 				283DD68022EBE30C00950AC8 /* ViewController.swift */,
@@ -133,6 +136,14 @@
 				28F4BABE22EF1E3500A3E662 /* WindowController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		28F4BAC022EF276600A3E662 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				28F4BAC122EF277D00A3E662 /* WindowPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F4BAC222EF277D00A3E662 /* WindowPresenter.swift in Sources */,
 				283DD68122EBE30C00950AC8 /* ViewController.swift in Sources */,
 				28F4BABF22EF1E3500A3E662 /* WindowController.swift in Sources */,
 				283DD67F22EBE30C00950AC8 /* AppDelegate.swift in Sources */,
