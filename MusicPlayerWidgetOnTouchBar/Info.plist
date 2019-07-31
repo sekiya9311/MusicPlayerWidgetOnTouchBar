@@ -28,5 +28,7 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+    <key>NSAppleEventsUsageDescription</key>
+    <string>For access Spotify app</string>
 </dict>
 </plist>
