@@ -14,6 +14,7 @@
 		283DD69222EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD69122EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarTests.swift */; };
 		283DD69D22EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD69C22EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarUITests.swift */; };
 		28569B1522F1EE9A00C3AAD7 /* AppleScriptService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28569B1422F1EE9A00C3AAD7 /* AppleScriptService.swift */; };
+		28569B1822F33D7700C3AAD7 /* TrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28569B1722F33D7700C3AAD7 /* TrackInfo.swift */; };
 		28F4BABF22EF1E3500A3E662 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4BABE22EF1E3500A3E662 /* WindowController.swift */; };
 		28F4BAC222EF277D00A3E662 /* WindowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4BAC122EF277D00A3E662 /* WindowPresenter.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,7 @@
 		283DD69C22EBE30D00950AC8 /* MusicPlayerWidgetOnTouchBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerWidgetOnTouchBarUITests.swift; sourceTree = "<group>"; };
 		283DD69E22EBE30D00950AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28569B1422F1EE9A00C3AAD7 /* AppleScriptService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleScriptService.swift; sourceTree = "<group>"; };
+		28569B1722F33D7700C3AAD7 /* TrackInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackInfo.swift; sourceTree = "<group>"; };
 		28F4BABE22EF1E3500A3E662 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		28F4BAC122EF277D00A3E662 /* WindowPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 		283DD67D22EBE30C00950AC8 /* MusicPlayerWidgetOnTouchBar */ = {
 			isa = PBXGroup;
 			children = (
+				28569B1622F32DF800C3AAD7 /* Entity */,
 				28569B1322F1EE6300C3AAD7 /* Service */,
 				28F4BAC022EF276600A3E662 /* Presenter */,
 				28F4BABB22EF1D6200A3E662 /* Controller */,
@@ -139,6 +142,14 @@
 				28569B1422F1EE9A00C3AAD7 /* AppleScriptService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		28569B1622F32DF800C3AAD7 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				28569B1722F33D7700C3AAD7 /* TrackInfo.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		28F4BABB22EF1D6200A3E662 /* Controller */ = {
@@ -288,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28569B1522F1EE9A00C3AAD7 /* AppleScriptService.swift in Sources */,
+				28569B1822F33D7700C3AAD7 /* TrackInfo.swift in Sources */,
 				28F4BAC222EF277D00A3E662 /* WindowPresenter.swift in Sources */,
 				283DD68122EBE30C00950AC8 /* ViewController.swift in Sources */,
 				28F4BABF22EF1E3500A3E662 /* WindowController.swift in Sources */,
