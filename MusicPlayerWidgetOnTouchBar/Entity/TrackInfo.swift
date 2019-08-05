@@ -13,4 +13,5 @@ struct TrackInfo: Codable {
     let artist: String
     let album: String
     let artworkUrl: String
+    let error: String
 }
