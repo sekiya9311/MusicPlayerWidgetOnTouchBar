@@ -50,6 +50,7 @@ final class WindowPresenter {
         
         if !curTrack.error.isEmpty {
             view?.musicDetail = curTrack.error
+            view?.artWork = nil
             return
         }
         
