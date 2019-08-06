@@ -13,7 +13,6 @@ final class WindowPresenter {
     typealias View = NSWindowController & WindowProtocol
     
     private weak var view: View?
-    private var scriptService = AppleScriptService()
     private let operateMusicPlayerService: OperateMusicPlayer
     private var timer: Timer?
     
