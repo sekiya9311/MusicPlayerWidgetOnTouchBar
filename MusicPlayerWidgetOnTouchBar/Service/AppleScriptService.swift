@@ -10,12 +10,12 @@ import Foundation
 
 class AppleScriptService {
     
+    @discardableResult
     func funcToSctipt(_ script: String) -> NSAppleEventDescriptor {
         
         var error: NSDictionary? = nil
         let scriptObj = NSAppleScript(source: script)!
         let output = scriptObj.executeAndReturnError(&error)
-        
         if error != nil {
             fatalError(error?.description ?? "")
         }

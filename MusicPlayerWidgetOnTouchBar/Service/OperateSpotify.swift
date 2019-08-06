@@ -17,19 +17,50 @@ class OperateSpotify: OperateMusicPlayer {
     }
     
     func playOrPause() {
+        let script = """
+if application \"Spotify\" is running then
+  tell application \"Spotify\"
+    playpause
+  end tell
+end if
+"""
         
+        scriptService.funcToSctipt(script)
     }
     
     func shiftPreviousTrack() {
+        let script = """
+if application \"Spotify\" is running then
+  tell application \"Spotify\"
+    previous track
+  end tell
+end if
+"""
         
+        scriptService.funcToSctipt(script)
     }
     
     func shiftNextTrack() {
-        
+        let script = """
+if application \"Spotify\" is running then
+  tell application \"Spotify\"
+    next track
+  end tell
+end if
+"""
+        scriptService.funcToSctipt(script)
     }
     
     func stop() {
+        let script = """
+if application \"Spotify\" is running then
+  tell application \"Spotify\"
+    pause
+  end tell
+end if
+"""
         
+        scriptService.funcToSctipt(script)
     }
     
     var currentTrack: TrackInfo? {
@@ -37,15 +68,11 @@ class OperateSpotify: OperateMusicPlayer {
             let getMusicInfoScript = """
 if application \"Spotify\" is running then
   tell application \"Spotify\"
-    if player state is playing then
-      set nameValue to (name of current track)
-      set artistValue to (artist of current track)
-      set albumValue to (album of current track)
-      set artworkUrlValue to (artwork url of current track)
-      return \"{\\"name\\":\\"\" & nameValue & \"\\",\\"artist\\":\\"\" & artistValue & \"\\",\\"album\\":\\"\" & albumValue & \"\\",\\"artworkUrl\\":\\"\" & artworkUrlValue & \"\\",\\"error\\":\\"\\"}\"
-    else
-      return \"{\\"name\\":\\"\\",\\"artist\\":\\"\\",\\"album\\":\\"\\",\\"artworkUrl\\":\\"\\",\\"error\\":\\"Don't play music ...\\"}\"
-    end if
+    set nameValue to (name of current track)
+    set artistValue to (artist of current track)
+    set albumValue to (album of current track)
+    set artworkUrlValue to (artwork url of current track)
+    return \"{\\"name\\":\\"\" & nameValue & \"\\",\\"artist\\":\\"\" & artistValue & \"\\",\\"album\\":\\"\" & albumValue & \"\\",\\"artworkUrl\\":\\"\" & artworkUrlValue & \"\\",\\"error\\":\\"\\"}\"
   end tell
 else
   return \"{\\"name\\":\\"\\",\\"artist\\":\\"\\",\\"album\\":\\"\\",\\"artworkUrl\\":\\"\\",\\"error\\":\\"Not open Spotify app ...\\"}\"

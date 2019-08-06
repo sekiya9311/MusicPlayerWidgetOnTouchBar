@@ -28,19 +28,19 @@ final class WindowPresenter {
     }
     
     func shiftPrevMusic() {
-        // TODO: impl
+        operateMusicPlayerService.shiftPreviousTrack()
     }
     
     func playOrPauseMusic() {
-        // TODO: impl
+        operateMusicPlayerService.playOrPause()
     }
     
     func stopMusic() {
-        // TODO: impl
+        operateMusicPlayerService.stop()
     }
     
     func shiftNextMusic() {
-        // TODO: impl
+        operateMusicPlayerService.shiftNextTrack()
     }
     
     @objc func createDisplayData() {
@@ -60,6 +60,11 @@ final class WindowPresenter {
         musicDetail += curTrack.name + ": " + curTrack.artist
         musicDetail += "\n"
         musicDetail += curTrack.album
+        
+        if view?.musicDetail == musicDetail {
+            return
+        }
+        
         view?.musicDetail = musicDetail
         view?.artWork = NSImage(contentsOf: URL(string: curTrack.artworkUrl)!)
     }
