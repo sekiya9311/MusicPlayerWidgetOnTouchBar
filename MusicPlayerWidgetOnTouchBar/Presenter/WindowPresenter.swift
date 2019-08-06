@@ -80,6 +80,7 @@ end if
                     musicDetail += obj.album
                     
                     self.view?.musicDetail = musicDetail
+                    self.view?.artWork = NSImage(contentsOf: URL(string: obj.artworkUrl)!)
                     
                     return true
                 }
