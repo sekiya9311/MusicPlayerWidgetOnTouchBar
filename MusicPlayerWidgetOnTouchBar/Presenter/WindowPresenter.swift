@@ -15,33 +15,36 @@ final class WindowPresenter {
     private weak var view: View?
     private var scriptService = AppleScriptService()
     private let operateMusicPlayerService: OperateMusicPlayer
+    private var timer: Timer?
     
     init(_ view: View, operateMusicPlayerService: OperateMusicPlayer) {
         self.view = view
         self.operateMusicPlayerService = operateMusicPlayerService
+        self.timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(WindowPresenter.createDisplayData),
+            userInfo: nil,
+            repeats: true)
     }
     
     func shiftPrevMusic() {
         // TODO: impl
-        createDisplayData()
     }
     
     func playOrPauseMusic() {
         // TODO: impl
-        createDisplayData()
     }
     
     func stopMusic() {
         // TODO: impl
-        createDisplayData()
     }
     
     func shiftNextMusic() {
         // TODO: impl
-        createDisplayData()
     }
     
-    private func createDisplayData() {
+    @objc func createDisplayData() {
         guard let curTrack = operateMusicPlayerService.currentTrack else {
             view?.musicDetail = "Can't get info ..."
             view?.artWork = nil
@@ -60,5 +63,9 @@ final class WindowPresenter {
         musicDetail += curTrack.album
         view?.musicDetail = musicDetail
         view?.artWork = NSImage(contentsOf: URL(string: curTrack.artworkUrl)!)
+    }
+    
+    func dispose() {
+        self.timer?.invalidate()
     }
 }

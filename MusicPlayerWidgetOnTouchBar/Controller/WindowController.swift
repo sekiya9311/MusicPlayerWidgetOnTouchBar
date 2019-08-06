@@ -39,8 +39,13 @@ class WindowController: NSWindowController {
         super.windowDidLoad()
     
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        presenter.createDisplayData()
     }
-
+    
+    override func close() {
+        presenter.dispose()
+    }
+    
     @IBOutlet weak var currentMusicDetail: NSTextField!
     @IBOutlet weak var currentMusicArtwork: NSImageCell!
 }
