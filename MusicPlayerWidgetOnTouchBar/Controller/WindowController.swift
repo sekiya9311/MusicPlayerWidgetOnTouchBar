@@ -15,7 +15,9 @@ protocol WindowProtocol {
 
 class WindowController: NSWindowController {
     
-    private lazy var presenter = WindowPresenter(self)
+    private lazy var presenter = WindowPresenter(
+        self,
+        operateMusicPlayerService: OperateSpotify(AppleScriptService()))
     
     @IBAction func prevAction(_ sender: Any) {
         presenter.shiftPrevMusic()

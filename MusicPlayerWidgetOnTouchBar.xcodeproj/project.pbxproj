@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2812F59722F8921B00672A43 /* OperateMusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812F59622F8921B00672A43 /* OperateMusicPlayer.swift */; };
+		2812F59922F8922E00672A43 /* OperateSpotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2812F59822F8922E00672A43 /* OperateSpotify.swift */; };
 		283DD67F22EBE30C00950AC8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD67E22EBE30C00950AC8 /* AppDelegate.swift */; };
 		283DD68122EBE30C00950AC8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283DD68022EBE30C00950AC8 /* ViewController.swift */; };
 		283DD68322EBE30D00950AC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 283DD68222EBE30D00950AC8 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2812F59622F8921B00672A43 /* OperateMusicPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateMusicPlayer.swift; sourceTree = "<group>"; };
+		2812F59822F8922E00672A43 /* OperateSpotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperateSpotify.swift; sourceTree = "<group>"; };
 		283DD67B22EBE30C00950AC8 /* MusicPlayerWidgetOnTouchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayerWidgetOnTouchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		283DD67E22EBE30C00950AC8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		283DD68022EBE30C00950AC8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2812F59522F891C600672A43 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2812F59622F8921B00672A43 /* OperateMusicPlayer.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		283DD67222EBE30C00950AC8 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +151,8 @@
 		28569B1322F1EE6300C3AAD7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2812F59822F8922E00672A43 /* OperateSpotify.swift */,
+				2812F59522F891C600672A43 /* Protocol */,
 				28569B1422F1EE9A00C3AAD7 /* AppleScriptService.swift */,
 			);
 			path = Service;
@@ -304,9 +318,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				28569B1522F1EE9A00C3AAD7 /* AppleScriptService.swift in Sources */,
+				2812F59722F8921B00672A43 /* OperateMusicPlayer.swift in Sources */,
 				28569B1822F33D7700C3AAD7 /* TrackInfo.swift in Sources */,
 				28F4BAC222EF277D00A3E662 /* WindowPresenter.swift in Sources */,
 				283DD68122EBE30C00950AC8 /* ViewController.swift in Sources */,
+				2812F59922F8922E00672A43 /* OperateSpotify.swift in Sources */,
 				28F4BABF22EF1E3500A3E662 /* WindowController.swift in Sources */,
 				283DD67F22EBE30C00950AC8 /* AppDelegate.swift in Sources */,
 			);

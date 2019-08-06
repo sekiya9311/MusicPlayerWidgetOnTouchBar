@@ -14,9 +14,11 @@ final class WindowPresenter {
     
     private weak var view: View?
     private var scriptService = AppleScriptService()
+    private let operateMusicPlayerService: OperateMusicPlayer
     
-    init(_ view: View) {
+    init(_ view: View, operateMusicPlayerService: OperateMusicPlayer) {
         self.view = view
+        self.operateMusicPlayerService = operateMusicPlayerService
     }
     
     func shiftPrevMusic() {
@@ -40,59 +42,22 @@ final class WindowPresenter {
     }
     
     private func createDisplayData() {
-        let getMusicInfoScript = """
-if application \"Spotify\" is running then
-  tell application \"Spotify\"
-    if player state is playing then
-      set nameValue to (name of current track)
-      set artistValue to (artist of current track)
-      set albumValue to (album of current track)
-      set artworkUrlValue to (artwork url of current track)
-      return \"{\\"name\\":\\"\" & nameValue & \"\\",\\"artist\\":\\"\" & artistValue & \"\\",\\"album\\":\\"\" & albumValue & \"\\",\\"artworkUrl\\":\\"\" & artworkUrlValue & \"\\",\\"error\\":\\"\\"}\"
-    else
-      return \"{\\"name\\":\\"\\",\\"artist\\":\\"\\",\\"album\\":\\"\\",\\"artworkUrl\\":\\"\\",\\"error\\":\\"Don't play music ...\\"}\"
-    end if
-  end tell
-else
-  return \"{\\"name\\":\\"\\",\\"artist\\":\\"\\",\\"album\\":\\"\\",\\"artworkUrl\\":\\"\\",\\"error\\":\\"Not open Spotify app ...\\"}\"
-end if
-"""
+        guard let curTrack = operateMusicPlayerService.currentTrack else {
+            view?.musicDetail = "Can't get info ..."
+            view?.artWork = nil
+            return
+        }
         
-        scriptService.funcToSctipt(
-            getMusicInfoScript,
-            { (output) -> Void in
-                
-                let getInfo = { () -> Bool in
-                    guard let res = output.stringValue else { return false }
-                    let jsonData = res.data(using: .utf8)
-                    guard let obj = try? JSONDecoder().decode(TrackInfo.self, from: jsonData!) else {
-                        return false
-                    }
-                    if !obj.error.isEmpty {
-                        // catch error
-                        self.view?.musicDetail = obj.error
-                        return true
-                    }
-                    
-                    var musicDetail = ""
-                    musicDetail += obj.name + ": " + obj.artist
-                    musicDetail += "\n"
-                    musicDetail += obj.album
-                    
-                    self.view?.musicDetail = musicDetail
-                    self.view?.artWork = NSImage(contentsOf: URL(string: obj.artworkUrl)!)
-                    
-                    return true
-                }
-                
-                if (!getInfo()) {
-                    view?.musicDetail = "Can't get info ..."
-                }
-                
-            },
-            { (error, errorStr) -> Void in
-                view?.musicDetail = "Can't get info ..."
-            }
-        )
+        if !curTrack.error.isEmpty {
+            view?.musicDetail = curTrack.error
+            return
+        }
+        
+        var musicDetail = ""
+        musicDetail += curTrack.name + ": " + curTrack.artist
+        musicDetail += "\n"
+        musicDetail += curTrack.album
+        view?.musicDetail = musicDetail
+        view?.artWork = NSImage(contentsOf: URL(string: curTrack.artworkUrl)!)
     }
 }

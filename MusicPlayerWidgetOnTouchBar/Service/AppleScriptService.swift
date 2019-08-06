@@ -10,19 +10,16 @@ import Foundation
 
 class AppleScriptService {
     
-    func funcToSctipt(_ script: String,
-                      _ successFunc: (NSAppleEventDescriptor) -> Void,
-                      _ failedFunc: (NSDictionary?, String?) -> Void) {
+    func funcToSctipt(_ script: String) -> NSAppleEventDescriptor {
         
         var error: NSDictionary? = nil
-        if let scriptObj = NSAppleScript(source: script) {
-            let output = scriptObj.executeAndReturnError(&error)
-            if error != nil {
-                failedFunc(error, nil)
-                return
-            }
-            
-            successFunc(output)
+        let scriptObj = NSAppleScript(source: script)!
+        let output = scriptObj.executeAndReturnError(&error)
+        
+        if error != nil {
+            fatalError(error?.description ?? "")
         }
+        
+        return output
     }
 }
