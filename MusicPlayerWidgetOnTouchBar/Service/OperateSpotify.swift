@@ -61,6 +61,15 @@ end if
 """
         
         scriptService.funcToSctipt(script)
+    var appName: String = "Spotify"
+    
+    var runningApp: Bool {
+        get {
+            let script = "return application \"Spotify\" is running"
+            
+            let resDescriptor = try? scriptService.funcToSctipt(script)
+            return resDescriptor?.booleanValue ?? false
+        }
     }
     
     var currentTrack: TrackInfo? {

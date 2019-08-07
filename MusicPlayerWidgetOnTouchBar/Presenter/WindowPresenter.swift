@@ -44,6 +44,13 @@ final class WindowPresenter {
     }
     
     @objc func createDisplayData() {
+        
+        if !operateMusicPlayerService.runningApp {
+            view?.musicDetail = "Not running \(operateMusicPlayerService.appName)"
+            view?.artWork = nil
+            return
+        }
+        
         guard let curTrack = operateMusicPlayerService.currentTrack else {
             view?.musicDetail = "Can't get info ..."
             view?.artWork = nil

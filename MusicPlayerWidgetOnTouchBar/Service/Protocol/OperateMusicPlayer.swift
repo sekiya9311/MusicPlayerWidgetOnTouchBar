@@ -9,7 +9,9 @@
 import Foundation
 
 protocol OperateMusicPlayer {
+    var appName: String { get }
     var currentTrack: TrackInfo? { get }
+    var runningApp: Bool { get }
     func playOrPause()
     func shiftPreviousTrack()
     func shiftNextTrack()
