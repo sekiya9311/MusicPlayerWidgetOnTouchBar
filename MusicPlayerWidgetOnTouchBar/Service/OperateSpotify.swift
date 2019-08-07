@@ -25,7 +25,7 @@ if application \"Spotify\" is running then
 end if
 """
         
-        scriptService.funcToSctipt(script)
+        try! scriptService.funcToSctipt(script)
     }
     
     func shiftPreviousTrack() {
@@ -37,7 +37,7 @@ if application \"Spotify\" is running then
 end if
 """
         
-        scriptService.funcToSctipt(script)
+        try! scriptService.funcToSctipt(script)
     }
     
     func shiftNextTrack() {
@@ -48,7 +48,7 @@ if application \"Spotify\" is running then
   end tell
 end if
 """
-        scriptService.funcToSctipt(script)
+        try! scriptService.funcToSctipt(script)
     }
     
     func stop() {
@@ -60,7 +60,9 @@ if application \"Spotify\" is running then
 end if
 """
         
-        scriptService.funcToSctipt(script)
+        try! scriptService.funcToSctipt(script)
+    }
+    
     var appName: String = "Spotify"
     
     var runningApp: Bool {
@@ -87,7 +89,7 @@ else
   return \"{\\"name\\":\\"\\",\\"artist\\":\\"\\",\\"album\\":\\"\\",\\"artworkUrl\\":\\"\\",\\"error\\":\\"Not open Spotify app ...\\"}\"
 end if
 """
-            let resDescriptor = self.scriptService.funcToSctipt(getMusicInfoScript)
+            guard let resDescriptor = try? self.scriptService.funcToSctipt(getMusicInfoScript) else { return nil }
             guard let resString = resDescriptor.stringValue else { return nil }
             let jsonData = resString.data(using: .utf8)
             guard let jsonObj = try? JSONDecoder().decode(TrackInfo.self, from: jsonData!) else {
